@@ -8,7 +8,7 @@
   "description": "Pandits Game",
   "main": "src/js/main.js",
   "scripts": {
-    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js",
+    "start": "./node_modules/webpack/bin/webpack.js --mode production --progress && node server.js",
     "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
