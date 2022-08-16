@@ -35,12 +35,12 @@ module.exports = {
   },
 
   plugins: [
-    new CopyWebpackPlugin({ patterns: [{ from: "./src/index.html" }] }),
+    new CopyWebpackPlugin({ patterns: [{ from: "src/index.html", to: "index.html"}] }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "./src/vendors/phaser.min.js" }],
+      patterns: [{ from: "src/vendors/phaser.min.js", to: "vendors/phaser.min.js" }],
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "./src/assets", to: "assets" }],
+      patterns: [{ from: "src/assets", to: "assets" }],
     }),
   ],
 
