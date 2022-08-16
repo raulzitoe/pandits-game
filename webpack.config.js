@@ -1,21 +1,56 @@
-const path = require('path');
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: "./src/js/main.js",
+
+  output: {
+    path: __dirname + "./dist",
+    filename: "bundle.js",
+  },
+
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
+        test: /\.js$/,
         exclude: /node_modules/,
+        use: { loader: "babel-loader" },
+        parser: {
+          presets: ["es2015"],
+        },
+      },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: "style" },
+          { loader: "css" },
+          { loader: "less" },
+        ],
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        include: /img/,
+        use: { loader: "url" },
       },
     ],
   },
+
+  plugins: [
+    new CopyWebpackPlugin({ patterns: [{ from: "./src/index.html" }] }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "./src/vendors/phaser.min.js" }],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "./src/assets", to: "assets" }],
+    }),
+  ],
+
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ["", ".js", ".jsx"],
   },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+
+  devServer: {
+    static: "./dist",
+    port: 5000,
   },
+  mode: 'development'
 };
