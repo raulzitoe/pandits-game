@@ -6,10 +6,10 @@
 	},
 	"description": "A typescript template project for Phaser 3 using Parceljs",
 	"scripts": {
-		"start": "node dist/main.ts",
+		"start": "node dist/index.js",
 		"postinstall": "tsc",
 		"watch-node": "nodemon dist/index.js",
-    	"watch-ts": "tsc -w",
+		"watch-ts": "tsc -w",
 		"deploy": "git add . && git commit -m Heroku && git push heroku master",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
