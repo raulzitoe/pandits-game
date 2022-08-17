@@ -1,31 +1,63 @@
 {
-  "name": "pandits-game",
-  "version": "1.0.0",
-  "engines": {
-    "node": "16.16.0",
-    "npm": "8.11.0"
-  },
-  "description": "Pandits Game",
-  "main": "src/js/main.js",
+  "name": "phaser-project-template",
+  "version": "3.55.2",
+  "description": "Phaser 3 starter template with TypeScript and webpack.",
+  "homepage": "https://github.com/yandeu/phaser-project-template#readme",
+  "main": "index.js",
   "scripts": {
-    "start": "./node_modules/webpack/bin/webpack.js --mode production --progress && node server.js",
-    "dev": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config webpack/webpack.dev.js",
+    "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
+    "deploy": "touch dist/.nojekyll && gh-pages -t -d dist -m \"Build for $(git log -n1 --pretty=format:\"%h %s\") [skip ci]\"",
+    "bundle": "npm run build",
+    "serve": "serve dist",
+    "format": "prettier --check src/scripts/**",
+    "format:write": "prettier --write src/scripts/**"
   },
-  "author": "Raul",
-  "license": "ISC",
+  "keywords": [
+    "Phaser",
+    "Phaser 3",
+    "Phaser3",
+    "html5 game",
+    "TypeScript",
+    "webpack",
+    "starter"
+  ],
+  "author": {
+    "name": "Yannick Deubel",
+    "url": "https://github.com/yandeu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yandeu/phaser-project-template.git"
+  },
+  "template": {
+    "name": "phaser-project-template",
+    "url": "https://github.com/yandeu/phaser-project-template",
+    "author": "Yannick Deubel (https://github.com/yandeu)"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.18.10",
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^8.2.5",
-    "copy-webpack-plugin": "^11.0.0",
-    "express": "^4.18.1",
-    "webpack": "^5.74.0",
-    "webpack-dev-server": "^4.10.0"
+    "gh-pages": "^4.0.0",
+    "phaser": "^3.55.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "webpack-cli": "^4.10.0"
+    "@yandeu/prettier-config": "^0.0.3",
+    "copy-webpack-plugin": "^10.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "javascript-obfuscator": "^4.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.3",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-obfuscator": "^3.5.0",
+    "workbox-webpack-plugin": "^6.4.2"
   }
 }
