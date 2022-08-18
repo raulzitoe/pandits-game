@@ -15,14 +15,7 @@ const config = {
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT
   },
-  scene: [PreloadScene, MainScene],
-  physics: {
-    default: 'arcade',
-    arcade: {
-      debug: false,
-      gravity: { y: 400 }
-    }
-  }
+  scene: [PreloadScene],
 }
 
 window.addEventListener('load', () => {
