@@ -1,4 +1,8 @@
 /.cache
+/.venv
 /dist
 /node_modules
 /package-lock.json
+*.pyc
+*.pyo
+/breach/flask_session/
